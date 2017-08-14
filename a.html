@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            margin: 30px auto;
+
+        }
+
+        .main{
+            float: left;
+
+        }
+        iframe{
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>降域实现跨域</h1>
+    <div class="main">
+        <input type="text" placeholder="http://localhost:8080/a.html">
+    </div>
+
+    <iframe src="http://localhost:8080/b.html" frameborder="0"></iframe>
+</div>
+
+<script>
+
+    document.querySelector('.main input').addEventListener('input',function(){
+        console.log(this.value)
+        window.frames[0].document.querySelector('input').value=this.value
+    })
+
+    document.domain= 'localhost'
+
+</script>
+
+
+
+
+</body>
+</html>
